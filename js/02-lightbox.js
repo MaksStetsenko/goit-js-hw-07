@@ -1,9 +1,10 @@
 import { galleryItems } from "./gallery-items.js";
-// Change code below this line
+
+//===========================================================
 
 const list = document.querySelector(".gallery");
 
-console.log(galleryItems);
+//===========================================================
 
 const markup = galleryItems
   .map(
@@ -30,19 +31,14 @@ function selectImg(event) {
   if (event.target.nodeName !== "IMG") {
     return;
   }
-
-  window.addEventListener("keydown", onEsckeyPress);
-  function onEsckeyPress(event) {
-    const escBtn = "Escape";
-    const isPressEscKey = event.code === escBtn;
-
-    if (isPressEscKey) {
-      instance.close();
-    }
-  }
 }
 
-let gallery = new SimpleLightbox(".gallery a", {
+const gallery = new SimpleLightbox(".gallery a", {
   captionsData: "alt",
 });
+
 gallery.on("show.simplelightbox", function () {});
+
+//============================================================
+
+list.addEventListener("click", selectImg);

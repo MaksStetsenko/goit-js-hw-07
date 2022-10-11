@@ -1,11 +1,8 @@
 import { galleryItems } from "./gallery-items.js";
-// Change code below this line
-
-// console.log(galleryItems);
 
 const list = document.querySelector(".gallery");
 
-//==================================================
+//===========================================================
 
 const markup = galleryItems
   .map(
@@ -27,7 +24,7 @@ const markup = galleryItems
 
 list.insertAdjacentHTML("afterbegin", markup);
 
-//==================================================
+//===========================================================
 
 function selectImg(event) {
   event.preventDefault();
@@ -35,10 +32,16 @@ function selectImg(event) {
     return;
   }
 
+  lightBox();
+}
+
+function lightBox() {
   const instance = basicLightbox.create(`
     <img src="${event.target.getAttribute("data-source")}" width="1280">`);
 
   instance.show();
+
+  //==== Close LightBox on Press Esc =========
 
   window.addEventListener("keydown", onEsckeyPress);
   function onEsckeyPress(event) {
@@ -50,5 +53,7 @@ function selectImg(event) {
     }
   }
 }
+
+//===========================================================
 
 list.addEventListener("click", selectImg);
