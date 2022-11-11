@@ -7,8 +7,7 @@ const list = document.querySelector(".gallery");
 const markup = galleryItems
   .map(
     (galleryItems) =>
-      `
-      <div class="gallery__item">
+      `<div class="gallery__item">
         <a class="gallery__link">
             <img 
               class="gallery__image"
@@ -17,8 +16,7 @@ const markup = galleryItems
               alt="${galleryItems.description}"
             >
         </a>
-      </div>
-      `
+      </div>`
   )
   .join("");
 
